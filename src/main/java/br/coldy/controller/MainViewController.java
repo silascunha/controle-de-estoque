@@ -4,7 +4,6 @@ import br.coldy.application.App;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
@@ -21,7 +20,7 @@ public class MainViewController implements Initializable {
     @FXML
     private ToggleButton btProducts;
     @FXML
-    private ToggleButton btCategory;
+    private ToggleButton btCategories;
     @FXML
     private ToggleButton btEmployee;
     @FXML
@@ -35,11 +34,10 @@ public class MainViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("Iniciou");
         buttonsGroup = new ToggleGroup();
         btWelcome.setToggleGroup(buttonsGroup);
         btProducts.setToggleGroup(buttonsGroup);
-        btCategory.setToggleGroup(buttonsGroup);
+        btCategories.setToggleGroup(buttonsGroup);
         btEmployee.setToggleGroup(buttonsGroup);
         btSettings.setToggleGroup(buttonsGroup);
     }
@@ -50,8 +48,13 @@ public class MainViewController implements Initializable {
     }
 
     @FXML
-    public void onBtProductsAction() throws IOException {
-        App.setScreen("OtherView");
+    public void onBtProductsAction() {
+        App.setScreen("ProductsView");
+    }
+
+    @FXML
+    public void onBtCategoriesAction() {
+        App.setScreen("CategoriesView");
     }
 
     @FXML
