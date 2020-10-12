@@ -1,7 +1,20 @@
 .menu-button {
     -fx-background-color: #212121;
-    -fx-background-radius: 0;
+    -fx-background-radius: none;
 }
 .menu-button:hover {
+    -fx-background-color: #383838;
+}
+.menu-button:pressed {
+    -fx-background-color: #555555;
+}
+.menu-button:armed {
+    -fx-background-color: red;
+}
+.toggle-button {
+    -fx-background-color: #212121;
+    -fx-background-radius: none;
+}
+.toggle-button:selected {
     -fx-background-color: #383838;
 }

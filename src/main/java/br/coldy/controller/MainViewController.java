@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -15,26 +16,29 @@ import java.util.ResourceBundle;
 public class MainViewController implements Initializable {
 
     @FXML
-    private Button btPrincipal;
+    private Button btWelcome;
     @FXML
-    private Button btSecond;
+    private Button btProducts;
+
+    private ToggleGroup buttonsGroup;
 
     //variavel auxiliar para o clique do mouse no botão que diminui o menu dos botões principais
     private boolean isMenuButtonsResumed;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        System.out.println("HAAAAAAAAAAi");
     }
 
     @FXML
-    public void onBtPrincipalAction() {
+    public void onBtWelcomeAction() {
         App.setScreen("WelcomeView");
     }
 
     @FXML
-    public void onBtSecondAction() throws IOException {
+    public void onBtProductsAction() throws IOException {
         App.setScreen("OtherView");
+        btProducts.arm();
     }
 
     @FXML
