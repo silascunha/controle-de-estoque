@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -16,10 +17,17 @@ import java.util.ResourceBundle;
 public class MainViewController implements Initializable {
 
     @FXML
-    private Button btWelcome;
+    private ToggleButton btWelcome;
     @FXML
-    private Button btProducts;
+    private ToggleButton btProducts;
+    @FXML
+    private ToggleButton btCategory;
+    @FXML
+    private ToggleButton btEmployee;
+    @FXML
+    private ToggleButton btSettings;
 
+    @FXML
     private ToggleGroup buttonsGroup;
 
     //variavel auxiliar para o clique do mouse no botão que diminui o menu dos botões principais
@@ -27,7 +35,13 @@ public class MainViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("HAAAAAAAAAAi");
+        System.out.println("Iniciou");
+        buttonsGroup = new ToggleGroup();
+        btWelcome.setToggleGroup(buttonsGroup);
+        btProducts.setToggleGroup(buttonsGroup);
+        btCategory.setToggleGroup(buttonsGroup);
+        btEmployee.setToggleGroup(buttonsGroup);
+        btSettings.setToggleGroup(buttonsGroup);
     }
 
     @FXML
@@ -38,7 +52,6 @@ public class MainViewController implements Initializable {
     @FXML
     public void onBtProductsAction() throws IOException {
         App.setScreen("OtherView");
-        btProducts.arm();
     }
 
     @FXML
