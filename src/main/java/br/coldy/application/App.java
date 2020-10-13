@@ -1,9 +1,11 @@
 package br.coldy.application;
 
+import br.coldy.controller.util.Alerts;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -38,12 +40,10 @@ public class App extends Application {
         try {
             VBox newVbox = (VBox) loadFXML(fxml);
 
-            VBox mainVbox = (VBox) mainScrollPane.getContent();
-
-            mainVbox.getChildren().clear();
-            mainVbox.getChildren().addAll(newVbox.getChildren());
-        } catch (IOException e) {
-            //TODO Class Alerts
+            mainScrollPane.setContent(newVbox);
+        } catch (IllegalStateException | IOException e) {
+            Alerts.showAlert("Erro", "Erro ao carregar a tela.",
+                    "Motivo: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
